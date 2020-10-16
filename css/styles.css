@@ -82,7 +82,7 @@ button {
   height: 65px;
   width: 65px;
   padding: 20px 1px 0 1px;
-  margin-right: 2px;
+  margin: 2px 2px 2px 0;
   color: transparent;
   background: var(--color-neutral-light);
   border-radius: 5px;
@@ -111,7 +111,8 @@ button {
   color: #FFFFFF;
 }
 
-.btn-start {
+.btn-start,
+.btn-restart {
   padding: 8px;
   margin: 50px auto;
   background: #FFFFFF;
@@ -121,7 +122,7 @@ button {
 
 /* Overlay */
 
-#overlay {
+.overlay {
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -132,32 +133,35 @@ button {
   left: 0;
   right: 0;
   border-radius: 5px;
+	z-index: 1;
 }
 
 .title {
   color: #FFF;
 }
 
-.start {
+#start {
   background-color: var(--color-start);
 }
 
-.start a {
+#start a {
   color: var(--color-win);
 }
 
-.win {
+#win {
   background-color: var(--color-win);
+	display: none;
 }
 
-.win a {
+#win a {
   color: var(--color-win);
 }
 
-.lose {
+#lose {
   background-color: var(--color-lose);
+	display: none;
 }
 
-.lose a {
+#lose a {
   color: var(--color-lose);
 }
