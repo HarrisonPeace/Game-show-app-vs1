@@ -44,7 +44,7 @@ function isLetter(str) {
   return str.length === 1 && str.match(/[a-z]/i);
 }
 
-//Main app functionality, listing for clicks on qwerty letters, showing those letters in the phrase, removing lives and checking for a win / lose. 
+//Main app functionality, listening for clicks on qwerty letters, showing those letters in the phrase, removing lives and checking for a win / lose. 
 qwerty.addEventListener('click', () => {
 	const buttonClicked = event.target;
 	const letterClicked = buttonClicked.innerHTML;
@@ -58,7 +58,7 @@ qwerty.addEventListener('click', () => {
 				buttonClicked.style.transform = 'rotate(5deg)';
 			}
 		},
-		//check the letter clicked against the phrase to show matched letters or remove a life if none are found
+		//check the letter clicked against the phrase to show matched letters and remove a life if none are found
 		checkLetter: () => {
 			if (isLetter(letterClicked)) {
               let letterTracker = 0;
