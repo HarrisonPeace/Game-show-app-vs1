@@ -3,7 +3,7 @@
 const startGameBtn = document.querySelector('.btn-start');
 const restartGameBtn = document.querySelectorAll('.btn-restart');
 const gameOverlay = document.querySelectorAll('.overlay');
-const phraseUl = document.querySelector('#phrase');
+const phraseList = document.querySelector('#phrase');
 const qwerty = document.querySelector('#qwerty');
 let wrongGuess = 0;
 const lives = document.querySelectorAll('.tries img');
@@ -25,16 +25,17 @@ const phrases = [ //phrases can only take lower case lettes between a-z (no spec
 //add a phrase from phrases array to display
 function addPhraseToDisplay () {
 	const getRandomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
-    const stringArray = getRandomPhrase.split('');
-      for (let i = 0; i < stringArray.length; i++) {
-          let li = document.createElement('li');
-          li.innerHTML = stringArray[i];
-          if (isLetter(stringArray[i])) {
-              li.className = 'letter';
-          } else {
-              li.className = 'space';
-          }
-          phraseUl.appendChild(li);
+	const arraySplit = getRandomPhrase.split(' ');
+	for (let i = 0; i < arraySplit.length; i++) {
+		let ul = document.createElement('ul');
+		const arraySplit2 = arraySplit[i].split('');
+		for (let j = 0; j < arraySplit2.length; j++) {
+			let li = document.createElement('li');
+			li.innerHTML = arraySplit2[j];
+            li.className = 'letter';
+			ul.appendChild(li);
+			phraseList.appendChild(ul);
+		}
       }
 }
 
@@ -59,18 +60,20 @@ qwerty.addEventListener('click', () => {
 		},
 		//check the letter clicked against the phrase to show matched letters or remove a life if none are found
 		checkLetter: () => {
-			let letterTracker = 0;
-			for (let i = 0; i < letters.length; i++) {
-				if (letters[i].innerHTML === letterClicked) {
-					letters[i].classList.add('show');
-					letterTracker++;
-				}
-			}
-			if (letterTracker <= 0) {
-				wrongGuess++;
-				if (wrongGuess >= 0) {
-					lives[(wrongGuess - 1)].src = "images/lostHeart.png"
-				}
+			if (isLetter(letterClicked)) {
+              let letterTracker = 0;
+              for (let i = 0; i < letters.length; i++) {
+                  if (letters[i].innerHTML === letterClicked) {
+                      letters[i].classList.add('show');
+                      letterTracker++;
+                  }
+              }
+              if (letterTracker <= 0) {
+                  wrongGuess++;
+                  if (wrongGuess >= 0) {
+                      lives[(wrongGuess - 1)].src = "images/lostHeart.png"
+                  }
+              }
 			}
 		},
 		// Check to see if the player has won or lost the game
@@ -97,7 +100,7 @@ function restartGame (overlay) {
 	document.querySelector(overlay).classList.add("hide-overlay");
 	wrongGuess = 0;
 	const disabledButtons = document.querySelectorAll('[disabled]')
-	const phraseletters = document.querySelectorAll('.letter, .space')
+	const phraseletters = document.querySelectorAll('.letter')
 	for (let i = 0; i < disabledButtons.length; i++) {
 		disabledButtons[i].removeAttribute('disabled', '');
 		disabledButtons[i].style.cssText = 'opacity: 1; transform: rotate(0deg);';
