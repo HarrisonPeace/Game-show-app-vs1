@@ -1,8 +1,7 @@
 /* Main styles */
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&Roboto:300');
-@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&family=Shrikhand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto:wght@300&family=Shrikhand&display=swap');
 
-/* main */
+/* ========== MAIN ========== */
 
 * {
 	box-sizing: border-box;
@@ -34,22 +33,6 @@ h3 {
 	font-size: 30px;
 }
 
-button {
-    margin: 6px;
-    padding: .5rem 1rem;
-	width: 55px;
-	height: 55px;
-    color: black;
-    font-size: 24px;
-    background-color: white;
-    border-radius: 5px;
-    border: black solid 2px;
-    -webkit-transition: all .2s ease-in-out;
-    -o-transition: all .2s ease-in-out;
-    transition: all .2s ease-in-out;
-    text-transform: capitalize;
-}
-
 .main-container {
     display: flex;
     flex-direction: column;
@@ -64,7 +47,7 @@ button {
     padding: 10px;
 }
 
-/* Phrase */
+/* ========= PHRASE ========= */
 
 .letter {
     font-size: 30px;
@@ -95,12 +78,31 @@ button {
 	color: transparent;
 }
 
-/* Keyboard */
+/* ========= KEYBOARD ========= */
 
 .keyrow {
     display: flex;
     justify-content: center;
 }
+
+button {
+    margin: 6px;
+    padding: .5rem 1rem;
+	width: 55px;
+	height: 55px;
+    color: black;
+    font-size: 24px;
+    background-color: white;
+    border-radius: 5px;
+    border: black solid 2px;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    text-transform: capitalize;
+	cursor: pointer;
+}
+
+/* ========= START / RESTART GAME BUTTON ========= */
 
 .btn {
     padding: 10px;
@@ -116,6 +118,7 @@ button {
 	box-shadow: 0 0 5px 2px white, inset 0 0 5px 2px black;
 	font-family: 'Shrikhand', cursive;
 	transition: .8s;
+	cursor: pointer;
 }
 
 .btn:hover {
@@ -125,7 +128,7 @@ button {
 	transition-timing-function: cubic-bezier(.59,-0.97,.84,1.69)
 }
 
-/* Overlay */
+/* ========= OVERLAY ========= */
 
 .overlay {
     display: flex;
@@ -140,6 +143,26 @@ button {
     border-radius: 5px;
     z-index: 1;
 }
+
+.hide-overlay {
+    -webkit-transform: translateY(-110%);
+	transition: 1s;
+	transition-timing-function: cubic-bezier(.6,-0.34,1,.53);
+}
+
+.show-overlay {
+    -webkit-transform: translateY(0);
+	-webkit-animation: anim1 .5s ease-in-out;
+
+}
+
+@-webkit-keyframes anim1 {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+
+/* --- OVERLAY TEXT ---*/
 
 .title {
   	text-shadow: 5px 5px 2px white;
@@ -171,6 +194,8 @@ button {
 	color: transparent;
 }
 
+/* --- OVERLAY BACKGROUNDS ---*/
+
 #start {
     background-image: linear-gradient(#000BE1, #FF00DD);
 	z-index: 99;
@@ -186,26 +211,4 @@ button {
 	background-image: linear-gradient(#E80003, #FF6700);
 	color: #FF6700;
 	z-index: 98;
-}
-
-.hide-overlay {
-    -webkit-transform: translateY(-110%);
-	transition: 1s;
-	transition-timing-function: cubic-bezier(.6,-0.34,1,.53);
-}
-
-.show-overlay {
-    -webkit-transform: translateY(0);
-	-webkit-animation: anim1 .5s ease-in-out;
-
-}
-
-@-webkit-keyframes anim1 {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
-}
-
-.btn,
-.keyrow button {
-	cursor: pointer;
 }
