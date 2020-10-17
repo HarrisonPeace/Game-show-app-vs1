@@ -1,167 +1,211 @@
 /* Main styles */
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&Roboto:300');
-
-/* Variables */
-
-:root {
-  --color-win: #78CF82;
-  --color-lose: #D94545;
-  --color-start: #5b85b7;
-  --color-neutral: #445069;
-  --color-neutral-light: #D2D2D2;
-  --color-keys: #37474F;
-  --color-keys-light: #E5E5E5;
-  --font-size-large: 60px;
-  --font-size-medium: 20px;
-  --transition: all .2s ease-in-out;
-}
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&family=Shrikhand&display=swap');
 
 /* main */
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
+	font-family: 'Open Sans', sans-serif;
 }
 
 body {
-  justify-content: space-evenly;
-  flex-direction: column;
-  display: flex;
-  height: 100vh;
+	justify-content: space-evenly;
+	flex-direction: column;
+	display: flex;
+	height: 100vh;
+	background-image: linear-gradient(#00FFAB, #8100FF);
 }
 
 li, ol, ul {
-  padding: 0;
-  display: inline-block;
+    padding: 0;
+    display: inline-block;
 }
 
 h2 {
-  margin: 0;
-  text-transform: uppercase;
-  font-family: 'Open Sans', sans-serif;
-  font-size: var(--font-size-large);
-  margin: 0;
+    text-transform: uppercase;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 60px;
+    margin: 0;
+}
+
+h3 {
+	text-transform: uppercase;
+	font-size: 30px;
 }
 
 button {
-  margin: 6px;
-  border: 1px solid transparent;
-  padding: .5rem 1rem;
-  color: var(--color-keys);
-  font-size: var(--font-size-medium);
-  background-color: var(--color-keys-light);
-  border-radius: 5px;
-  -webkit-transition: var(--transition);
-  -o-transition: var(--transition);
-  transition: var(--transition);
+    margin: 6px;
+    padding: .5rem 1rem;
+	width: 55px;
+	height: 55px;
+    color: black;
+    font-size: 24px;
+    background-color: white;
+    border-radius: 5px;
+    border: black solid 2px;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    text-transform: capitalize;
 }
 
 .main-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 100%;
-  max-height: 900px;
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+    max-height: 900px;
+    text-align: center;
 }
 
 .section {
-  width: 100%;
-  padding: 10px;
-}
-
-/* Title */
-
-.header {
-  color: var(--color-start);
+    width: 100%;
+    padding: 10px;
 }
 
 /* Phrase */
 
 .letter {
-  font-size: var(--font-size-medium);
-  height: 65px;
-  width: 65px;
-  padding: 20px 1px 0 1px;
-  margin: 2px 2px 2px 0;
-  color: transparent;
-  background: var(--color-neutral-light);
-  border-radius: 5px;
+    font-size: 30px;
+    text-transform: capitalize;
+    height: 75px;
+    width: 75px;
+    padding: 20px 1px 0 1px;
+    margin: 2px 2px 2px 0;
+    color: transparent;
+    background-color: transparent;
+    border: black solid 2px;
+    border-radius: 5px;
+    font-family: 'Shrikhand', cursive;
+	
 }
 
 .space {
-  width: 15px;
+    width: 15px;
 }
 
 .show {
-  color: #000;
-  background-color: #76CE82;
+	transition: .5s;
+	transition-timing-function: ease-in-out;
+	background: rgb(0,30,255);
+	background: linear-gradient(108deg, rgba(0,30,255,1) 0%, rgba(243,0,251,1) 25%, rgba(0,79,255,1) 50%, rgba(243,0,251,1) 79%, rgba(24,0,255,1) 100%);   
+	border: white solid 2px;
+	-webkit-text-stroke: 2px white;
+	color: transparent;
 }
 
 /* Keyboard */
 
 .keyrow {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
-.chosen {
-  background: var(--color-neutral);
-  border-radius: 5px;
-  font-size: var(--font-size-medium);
-  color: #FFFFFF;
+.btn {
+    padding: 10px;
+    margin: 40px auto;
+    background: #FFFFFF;
+    border-radius: 5px;
+    font-size: 23px;
+	font-weight: bold;
+	-webkit-text-stroke: 1.4px white;
+	color: transparent;
+	background-color: transparent;
+	border: solid black 1px;
+	box-shadow: 0 0 5px 2px white, inset 0 0 5px 2px black;
+	font-family: 'Shrikhand', cursive;
+	transition: .8s;
 }
 
-.btn-start,
-.btn-restart {
-  padding: 8px;
-  margin: 50px auto;
-  background: #FFFFFF;
-  border-radius: 5px;
-  font-size: var(--font-size-medium);
+.btn:hover {
+	box-shadow: 0 0 5px 2px black, inset 0 0 5px 2px white;
+	-webkit-text-stroke: 1.4px black;
+	transform: rotate(5deg);
+	transition-timing-function: cubic-bezier(.59,-0.97,.84,1.69)
 }
 
 /* Overlay */
 
 .overlay {
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  color: #FFFFFF;
-  justify-content: center;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  border-radius: 5px;
-	z-index: 1;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    color: #FFFFFF;
+    justify-content: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 5px;
+    z-index: 1;
 }
 
 .title {
-  color: #FFF;
+  	text-shadow: 5px 5px 2px white;
+	-webkit-text-stroke: 2px black;
+	color: transparent;
+}
+
+.text-overlay {
+	position: relative;
+	display: inline-block;
+	width: 343.117px;
+	height: 41px;
+	margin: 0 auto;
+}
+
+.text-overlay h3 {
+	position: absolute;
+	margin: 0;
+}
+.text-overlay-top {
+	z-index: 3;
+	text-shadow: 5px 5px 2px white;
+	color: transparent;
+}
+
+.text-overlay-bottom {
+	z-index: 2;
+	-webkit-text-stroke: 2px black;
+	color: transparent;
 }
 
 #start {
-  background-color: var(--color-start);
-}
-
-#start a {
-  color: var(--color-win);
-}
+    background-image: linear-gradient(#000BE1, #FF00DD);
+	z-index: 99;
+}	
 
 #win {
-  background-color: var(--color-win);
-	display: none;
+    background-image: linear-gradient(#2AFF00, #00F3FF);
+	z-index: 98;
 }
 
-#win a {
-  color: var(--color-win);
-}
 
 #lose {
-  background-color: var(--color-lose);
-	display: none;
+	background-image: linear-gradient(#E80003, #FF6700);
+	color: #FF6700;
+	z-index: 98;
 }
 
-#lose a {
-  color: var(--color-lose);
+.hide-overlay {
+    -webkit-transform: translateY(-110%);
+	transition: 1s;
+	transition-timing-function: cubic-bezier(.6,-0.34,1,.53);
+}
+
+.show-overlay {
+    -webkit-transform: translateY(0);
+	-webkit-animation: anim1 .5s ease-in-out;
+
+}
+
+@-webkit-keyframes anim1 {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+.btn,
+.keyrow button {
+	cursor: pointer;
 }
