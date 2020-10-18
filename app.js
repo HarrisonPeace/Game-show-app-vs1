@@ -20,7 +20,7 @@ const phrases = [ //phrases can only take lower case lettes between a-z (no spec
 	'toto ive got a feeling were not in kansas anymore',
 	'may the force be with you',
 	'im king of the world'
-]
+];
 
 //add a phrase from phrases array to display
 function addPhraseToDisplay () {
@@ -71,14 +71,14 @@ qwerty.addEventListener('click', () => {
               if (letterTracker <= 0) {
                   wrongGuess++;
                   if (wrongGuess >= 0) {
-                      lives[(wrongGuess - 1)].src = "images/lostHeart.png"
+                      lives[(wrongGuess - 1)].src = "images/lostHeart.png";
                   }
               }
 			}
 		},
 		// Check to see if the player has won or lost the game
 		checkWinLose: () => {
-			const lettersSelected = document.querySelectorAll('.show')
+			const lettersSelected = document.querySelectorAll('.show');
 			if (lettersSelected.length === letters.length) {
 				document.querySelector('#win').classList.remove("hide-overlay");
 				document.querySelector('#win').classList.add("show-overlay");
@@ -106,11 +106,9 @@ function restartGame (overlay) {
 		disabledButtons[i].style.cssText = 'opacity: 1; transform: rotate(0deg);';
 	}
 	for (let i = 0; i < lives.length; i++) {
-		lives[i].src = "images/liveHeart.png"
+		lives[i].src = "images/liveHeart.png";
 	}
-    for (let i = 0; i < phraseletters.length; i++) {
-    phraseletters[i].remove();
-	} 
+    phraseList.innerHTML = ""; 
 	addPhraseToDisplay();
 }
 
